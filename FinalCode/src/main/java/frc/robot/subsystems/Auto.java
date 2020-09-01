@@ -2,7 +2,7 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 
@@ -19,7 +19,6 @@ public class Auto extends Subsystem {
   }
   public void start(){
     if(Robot.m_Chassis.forward(40, 0.1)){
-      
     }
   }
   public boolean isFinished(){
