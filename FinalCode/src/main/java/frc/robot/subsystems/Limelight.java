@@ -22,6 +22,13 @@ public class Limelight extends Subsystem{
       tx = table.getEntry("tx");
       ty = table.getEntry("ty");
   }
+  public void showConnection(){
+    if(table.getInstance() != null){
+      SmartDashboard.putString("Connection", "Working");
+      }else{
+        SmartDashboard.putString("Connection", "Failed");
+      }
+  }
   public void show(){
     x = tx.getDouble(0.0);
     y = ty.getDouble(0.0);

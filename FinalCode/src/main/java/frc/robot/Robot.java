@@ -53,6 +53,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     RobotMap.init();
     lime = new Limelight();
+    lime.showConnection();
     m_Chassis = new Chassis(); 
     m_Intake = new Intake();
     m_EndGame = new EndGame();
