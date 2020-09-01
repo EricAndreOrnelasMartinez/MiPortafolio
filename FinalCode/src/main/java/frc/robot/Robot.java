@@ -15,11 +15,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.AutoCmd;
 import frc.robot.commands.ChassisDrive;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.LimelightShower;
 import frc.robot.subsystems.Auto;
 import frc.robot.subsystems.Chassis;
 import frc.robot.subsystems.EndGame;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Shooter;
 
 /**
@@ -38,7 +40,8 @@ public class Robot extends TimedRobot {
   public static EndGame m_EndGame;
   public static Auto m_Auto; 
   public static OI m_oi;
-
+  public static Limelight lime;
+  public Command limelightShowercCommand;
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -49,11 +52,13 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     RobotMap.init();
+    lime = new Limelight();
     m_Chassis = new Chassis(); 
     m_Intake = new Intake();
     m_EndGame = new EndGame();
     m_Shooter = new Shooter();  
     m_Auto = new Auto(); 
+    limelightShowercCommand = new LimelightShower();
     chasis_DriveCommand = new ChassisDrive(); 
     m_autonomousCommand = new AutoCmd(); 
     m_oi = new OI();
@@ -117,6 +122,9 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     if(chasis_DriveCommand != null){
       chasis_DriveCommand.start();
+    }
+    if(limelightShowercCommand != null){
+      limelightShowercCommand.start();
     }
     Scheduler.getInstance().run();
   }
