@@ -40,7 +40,7 @@ public class Limelight extends Subsystem{
     d = (hField - hcamera) / Math.tan(a1 + a2);
     return d;
   }
-  public double getAngle(){
+  public double getAngleX(){
     return tx.getDouble(0.0);
   }
 }
