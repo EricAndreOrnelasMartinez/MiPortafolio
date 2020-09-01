@@ -22,7 +22,6 @@ public class Limelight extends Subsystem{
       tx = table.getEntry("tx");
       ty = table.getEntry("ty");
   }
-
   public void show(){
     x = tx.getDouble(0.0);
     y = ty.getDouble(0.0);
@@ -34,7 +33,7 @@ public class Limelight extends Subsystem{
     d = (hField - hcamera) / Math.tan(a1 + a2);
     return d;
   }
-  public double getX(){
+  public double getAngle(){
     return tx.getDouble(0.0);
   }
 }

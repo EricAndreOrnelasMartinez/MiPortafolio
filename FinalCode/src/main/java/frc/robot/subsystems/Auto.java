@@ -12,19 +12,14 @@ public class Auto extends Subsystem {
   public static boolean flag = false; 
   public static boolean flag2 = false; 
   private boolean flagFinish = false; 
+  int f = 0;
 
   @Override
   protected void initDefaultCommand() {
   }
   public void start(){
-    Robot.m_Chassis.forward(40, 0.2);
-    if(flag == true){
-      Robot.m_Chassis.turnLeft(40, 0.2);
-    }
-    if(flag2 == true){
-      Robot.m_Shooter.shoot();
-      Robot.m_Intake.take(0, 1, Value.kReverse);
-      flagFinish = true; 
+    if(Robot.m_Chassis.forward(40, 0.1)){
+      
     }
   }
   public boolean isFinished(){

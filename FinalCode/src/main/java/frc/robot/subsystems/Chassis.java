@@ -67,7 +67,8 @@ public class Chassis extends Subsystem {
     motor_R1.set(0);
     motor_R2.set(0);
   }
-  public void forward(double rotation, double speed){
+  public boolean forward(double rotation, double speed){
+    boolean flag = false;
     if((encoderL.getPosition() < rotation) || (encoderR.getPosition() < rotation)){
       motor_L1.set(speed);
       motor_L2.set(speed);
@@ -78,8 +79,9 @@ public class Chassis extends Subsystem {
       motor_L2.set(0);
       motor_R1.set(0);
       motor_R2.set(0);
-      Auto.flag = ((encoderL.getPosition() >= rotation) || (encoderR.getPosition() >= rotation)); 
+      flag = true;
     }
+    return flag;
   }
   public void reverse(double rotation, double speed){
     if((encoderL.getPosition() > rotation) || (encoderR.getPosition() > rotation)){
@@ -105,7 +107,6 @@ public class Chassis extends Subsystem {
       motor_L2.set(0);
       motor_R1.set(0);
       motor_R2.set(0);
-      Auto.flag2 = true; 
     }
   }
   public void turnRight(double rotationL, double speed){
